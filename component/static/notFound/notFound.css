@@ -1,0 +1,9 @@
+h1{
+    /* font-size: 260px; */
+    font-weight: 400;
+    /* height: fit-content; */
+    max-height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

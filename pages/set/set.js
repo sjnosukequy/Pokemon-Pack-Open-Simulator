@@ -10,9 +10,10 @@ const setName = document.getElementById('set-name');
 const releaseDate = document.getElementById('release-date');
 const cardsContainer = document.getElementById('cards-container');
 const setImage = document.getElementById('set-image');
-const notFoundContainer = document.getElementById('not-found-container');
 const pokeBallContainer = document.getElementById('poke-ball-container');
 const featuredContainer = document.getElementById('featured-card');
+const notFoundContainer = document.getElementById('not-found-container');
+const pageContent = document.getElementById('inner-content');
 
 function loaderControl(show, element) {
     // console.log(element.classList)
@@ -128,6 +129,9 @@ class Card {
 
 async function fetchSet() {
     const set = await tcgdex.fetchSet(pokemonId);
+    if (set.status) {
+        throw new Error(set.title);
+    }
     setName.textContent = set.name;
     releaseDate.textContent = 'Released: ' + set.releaseDate;
     setImage.src = set.logo + '.webp';
@@ -141,12 +145,21 @@ async function fetchSet() {
 }
 
 async function main() {
-    loaderControl(true, contentContainer);
-    await fetchSet();
-    const button = FunButton.createButton('Play Now');
-    document.getElementById('fun-button').replaceWith(button);
-    // document.getElementById('fun-button').appendChild(button);
-    loaderControl(false, contentContainer);
+    try {
+        loaderControl(true, contentContainer);
+        await fetchSet();
+        const button = FunButton.createButton('Play Now');
+        document.getElementById('fun-button').replaceWith(button);
+        // document.getElementById('fun-button').appendChild(button);
+    }
+    catch (e) {
+        console.log(e);
+        notFoundContainer.classList.toggle('hidden', false);
+        pageContent.classList.toggle('hidden', true);
+    }
+    finally {
+        loaderControl(false, contentContainer);
+    }
 }
 
 main();

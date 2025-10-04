@@ -14,7 +14,7 @@
   <body>
     <div id="root" class="h-screen w-screen overflow-hidden">
       <div id="content" class="w-full h-full overflow-hidden hidden">
-        <div class="p-10 flex flex-col h-full overflow-hidden">
+        <div id="inner-content" class="p-10 flex flex-col h-full overflow-hidden">
           <a class="text-4xl font-bold mb-10 text-center" href="../"
             >Pokemon packs</a
           >
@@ -58,7 +58,12 @@
             </div>
           </div>
         </div>
-        <div id="not-found-container" class="hidden"></div>
+        <div id="not-found-container" class="hidden">
+          <iframe
+            src="/component/static/notFound/notFound.html"
+            id="not-found"
+          ></iframe>
+        </div>
       </div>
       <div
         id="loader-container"
