@@ -10,7 +10,7 @@ class packs {
         this.id = id;
         this.cardCount = cardCount;
     }
-    addToPage() {
+    addToPage(element) {
         const packDiv = document.createElement('a');
         const packName = document.createElement('p');
         const packImage = document.createElement('img');
@@ -29,7 +29,7 @@ class packs {
         packName.classList.add('pack-name');
         container.classList.add('pack-container');
         cardCount.classList.add('pack-card-count');
-        packsContainer.appendChild(packDiv);
+        element.appendChild(packDiv);
     }
 }
 
@@ -52,8 +52,8 @@ async function getPokemonData(pokemonName) {
     loaderControl(false, packsContainer);
     for (let set of sets) {
         if(!set.logo) continue;
-        let div = new packs(set.name, set.logo + '.png', set.id, set.cardCount.official);
-        div.addToPage();
+        let div = new packs(set.name, set.logo + '.webp', set.id, set.cardCount.official);
+        div.addToPage(packsContainer);
     }
 }
 

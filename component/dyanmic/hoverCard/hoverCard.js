@@ -16,7 +16,7 @@ export default class hoverCard {
         }
     }
 
-    createCard() {
+    createCard(imglink) {
         const div = document.createElement('div')
         div.classList.add('container', 'noselect')
         div.innerHTML = `
@@ -47,12 +47,7 @@ export default class hoverCard {
     <div class="tracker tr-24"></div>
     <div class="tracker tr-25"></div>
     <div id="card">
-    <p id="prompt">HOVER OVER :D</p>
-      <div class="title">look mom,<br>no JS</div>
-      <div class="subtitle">
-        mouse hover tracker
-      </div>
-      
+      <img src="${imglink}" loading="lazy" />
     </div>
   </div>
         `

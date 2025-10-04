@@ -15,13 +15,46 @@
     <div id="root" class="h-screen w-screen overflow-hidden">
       <div id="content" class="w-full h-full overflow-hidden hidden">
         <div class="p-10 flex flex-col h-full overflow-hidden">
-          <h1 class="text-4xl font-bold mb-10 text-center">Pokemon packs</h1>
-          <div class="flex-1 flex flex-col md:flex-row gap-10">
-            <div class="w-full md:w-1/3"></div>
-            <div class="w-full md:w-2/3">
-              <h2 id="set-name"></h2>
-              <p id="release-date"></p>
-              <div id="cards-container" class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-3 overflow-auto"></div>
+          <a class="text-4xl font-bold mb-10 text-center" href="../"
+            >Pokemon packs</a
+          >
+          <div
+            class="flex-1 flex flex-col md:flex-row gap-10 overflow-y-auto overflow-x-hidden md:overflow-hidden"
+          >
+            <div class="w-full md:w-1/3 h-full relative">
+              <div id="featured-card" class="w-full h-full">
+                <p class="text-2xl text-center flex items-center justify-center w-full h-full">
+                  Select a card
+                </p>
+              </div>
+              <div
+                id="poke-ball-container"
+                class="absolute inset-0 flex flex-col items-center justify-center hidden"
+              >
+                <iframe
+                  id="poke-ball"
+                  src="/component/static/pokeBallLoader/loader.html"
+                ></iframe>
+                <p class="text-xl mt-[-20px]">Searching...</p>
+              </div>
+            </div>
+            <div
+              class="w-full md:w-2/3 h-full flex flex-col md:overflow-hidden"
+            >
+              <div class="flex flex-row items-center justify-between">
+                <div class="flex flex-row items-center gap-5 mb-5">
+                  <img id="set-image" src="" alt="" />
+                  <div>
+                    <h2 id="set-name"></h2>
+                    <p id="release-date"></p>
+                  </div>
+                </div>
+                <div id="fun-button"></div>
+              </div>
+              <div
+                id="cards-container"
+                class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:overflow-auto flex-1"
+              ></div>
             </div>
           </div>
         </div>
