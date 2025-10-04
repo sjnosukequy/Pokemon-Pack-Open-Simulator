@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Set</title>
+    <script src="../../script/tailwinds/tailwinds.js"></script>
+    <link rel="stylesheet" href="../../style/style.css" />
+    <link rel="stylesheet" href="../../style/daisy.css" />
+    <link rel="stylesheet" href="./set.css" />
+    <link rel="icon" type="image/x-icon" href="../../image/icon.svg" />
+    <script src="https://cdn.jsdelivr.net/npm/@tcgdex/sdk@2/dist/tcgdex.browser.js"></script>
+  </head>
+  <body>
+    <div id="root" class="h-screen w-screen overflow-hidden">
+      <div id="content" class="w-full h-full overflow-hidden hidden">
+        <div class="p-10 flex flex-col h-full overflow-hidden">
+          <h1 class="text-4xl font-bold mb-10 text-center">Pokemon packs</h1>
+          <div class="flex-1 flex flex-col md:flex-row gap-10">
+            <div class="w-full md:w-1/3"></div>
+            <div class="w-full md:w-2/3">
+              <h2 id="set-name"></h2>
+              <p id="release-date"></p>
+              <div id="cards-container" class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-3 overflow-auto"></div>
+            </div>
+          </div>
+        </div>
+        <div id="not-found-container" class="hidden"></div>
+      </div>
+      <div
+        id="loader-container"
+        class="flex flex-col items-center justify-center w-full h-full"
+      >
+        <iframe
+          src="../../component/static/loader/loader.html"
+          id="loader"
+        ></iframe>
+        <p class="text-2xl font-bold mt-10">Loading...</p>
+      </div>
+    </div>
+  </body>
+  <script src="./set.js" type="module"></script>
+</html>
