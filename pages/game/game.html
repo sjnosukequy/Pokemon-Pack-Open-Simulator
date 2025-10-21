@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Set</title>
+    <script src="../../script/tailwinds/tailwinds.js"></script>
+    <link rel="stylesheet" href="../../style/style.css" />
+    <link rel="stylesheet" href="../../style/daisy.css" />
+    <link rel="stylesheet" href="./game.css" />
+    <link rel="stylesheet" href="../../script/lightbox/css/lightbox.min.css" />
+    <link rel="icon" type="image/x-icon" href="../../image/icon.svg" />
+    <script src="https://cdn.jsdelivr.net/npm/@tcgdex/sdk@2/dist/tcgdex.browser.js"></script>
+  </head>
+  <body>
+    <div id="root" class="h-screen w-screen overflow-hidden">
+      <div id="content" class="hidden h-full w-full overflow-hidden">
+        <div
+          id="inner-content"
+          class="flex h-full flex-col overflow-hidden p-10"
+        >
+          <a class="mb-6 text-center text-4xl font-bold" href="/">
+            Pokemon packs
+          </a>
+          <div
+            class="flex flex-1 flex-col gap-4 overflow-x-hidden overflow-y-auto"
+          >
+            <div class="relative w-fit self-center">
+              <div
+                id="pack-container"
+                class="relative flex items-center justify-center"
+              ></div>
+              <div id="pack-controls" class="absolute inset-0">
+                <div id="pack-open" class="absolute inset-0"></div>
+                <div
+                  id="peek-left"
+                  class="absolute top-0 left-0 h-full w-[20px]"
+                ></div>
+                <div
+                  id="peek-right"
+                  class="absolute top-0 right-0 h-full w-[20px]"
+                ></div>
+              </div>
+              <div
+                id="reset-container"
+                class="absolute inset-0 flex hidden items-center justify-center"
+              >
+                <button
+                  id="reset-button"
+                  class="flex cursor-pointer flex-col items-center justify-center text-2xl"
+                >
+                  <img
+                    src="../../image/refresh.svg"
+                    class="h-[50px] w-[50px]"
+                  />
+                  Open New Pack
+                </button>
+              </div>
+            </div>
+            <div class="mb-5 flex flex-row items-center gap-5">
+              <img id="set-image" src="" alt="" />
+              <div>
+                <h2 id="set-name"></h2>
+                <p id="release-date"></p>
+              </div>
+            </div>
+            <div
+              id="cards-container"
+              class="flex flex-row flex-wrap justify-center gap-4 overflow-auto p-2"
+            ></div>
+          </div>
+        </div>
+        <div id="not-found-container" class="hidden">
+          <iframe
+            src="/component/static/notFound/notFound.html"
+            id="not-found"
+          ></iframe>
+        </div>
+      </div>
+      <div
+        id="loader-container"
+        class="flex h-full w-full flex-col items-center justify-center"
+      >
+        <iframe
+          src="../../component/static/loader/loader.html"
+          id="loader"
+        ></iframe>
+        <p class="mt-10 text-2xl font-bold">Loading...</p>
+      </div>
+    </div>
+  </body>
+  <script src="../../script/lightbox/js/lightbox-plus-jquery.min.js"></script>
+  <script src="./game.js" type="module"></script>
+</html>

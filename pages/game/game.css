@@ -1,0 +1,76 @@
+#loader {
+  transform: scale(2);
+  width: 100px;
+  height: 100px;
+}
+
+#not-found-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#not-found {
+  width: 100%;
+  height: 100%;
+}
+
+#pack-container {
+  width: 230px;
+  height: 309px;
+  /* transform: rotateY(58deg); */
+  transform-style: preserve-3d;
+  transition: all 0.3s;
+}
+
+.non-spin-card {
+  width: min-content;
+  height: min-content;
+  max-height: 100%;
+  padding: 10px;
+  border-radius: 1.25em;
+  opacity: 0;
+  transition: all 0.2s;
+  transition-delay: 0.75s;
+}
+
+.opened-pack .non-spin-card {
+  opacity: 1;
+}
+
+.discard-card {
+  transition: all 1s;
+  transition-delay: 0ms;
+}
+
+.container-card{
+  width: 150px;
+  height: min-content;
+  max-height: 100%;
+  border-radius: 0.25em;
+  transition: all 0.3s;
+}
+
+.container-card:hover{
+  transform: translateY(-4px);
+}
+
+.peeked-left {
+  transform: rotateY(58deg) translateX(-50px);
+}
+.peeked-right {
+  transform: rotateY(-58deg) translateX(50px);
+}
+
+#pack-open {
+  cursor: pointer;
+}
+
+#set-image {
+  width: fit-content;
+  height: fit-content;
+  max-height: 72px;
+  max-width: 30%;
+}

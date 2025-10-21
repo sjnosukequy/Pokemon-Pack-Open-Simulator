@@ -16,8 +16,9 @@ export default class funButton {
         }
     }
 
-    createButton(contentString) {
-        const div = document.createElement('div')
+    createButton(contentString, linkUrl = '#') {
+        const div = document.createElement('a')
+        div.href = linkUrl
         div.classList.add('sp')
         div.innerHTML = `
         <button class="sparkle-button">

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,38 +11,50 @@
     <link rel="icon" type="image/x-icon" href="../../image/icon.svg" />
     <script src="https://cdn.jsdelivr.net/npm/@tcgdex/sdk@2/dist/tcgdex.browser.js"></script>
   </head>
+
   <body>
     <div id="root" class="h-screen w-screen overflow-hidden">
-      <div id="content" class="w-full h-full overflow-hidden hidden">
-        <div id="inner-content" class="p-10 flex flex-col h-full overflow-hidden">
-          <a class="text-4xl font-bold mb-10 text-center" href="../"
+      <div id="content" class="hidden h-full w-full overflow-hidden">
+        <div
+          id="inner-content"
+          class="flex h-full flex-col overflow-hidden p-10"
+        >
+          <a class="mb-10 text-center text-4xl font-bold" href="/"
             >Pokemon packs</a
           >
           <div
-            class="flex-1 flex flex-col md:flex-row gap-10 overflow-y-auto overflow-x-hidden md:overflow-hidden"
+            class="flex flex-1 flex-col gap-10 overflow-x-hidden overflow-y-auto md:flex-row md:overflow-hidden"
           >
-            <div class="w-full md:w-1/3 h-full relative">
-              <div id="featured-card" class="w-full h-full">
-                <p class="text-2xl text-center flex items-center justify-center w-full h-full">
+            <div class="relative h-full w-full md:w-1/3">
+              <div id="featured-card" class="h-full w-full">
+                <p
+                  class="flex h-full w-full items-center justify-center text-center text-2xl"
+                >
                   Select a card
                 </p>
               </div>
               <div
+                id="poke-ball-container-padder"
+                class="hidden h-[260px] w-full"
+              ></div>
+              <div
                 id="poke-ball-container"
-                class="absolute inset-0 flex flex-col items-center justify-center hidden"
+                class="absolute inset-0 flex hidden flex-col items-center justify-center"
               >
                 <iframe
                   id="poke-ball"
                   src="/component/static/pokeBallLoader/loader.html"
                 ></iframe>
-                <p class="text-xl mt-[-20px]">Searching...</p>
+                <p class="mt-[-20px] text-xl">Searching...</p>
               </div>
             </div>
             <div
-              class="w-full md:w-2/3 h-full flex flex-col md:overflow-hidden"
+              class="flex h-full w-full flex-col gap-4 md:w-2/3 md:overflow-hidden"
             >
-              <div class="flex flex-row items-center justify-between">
-                <div class="flex flex-row items-center gap-5 mb-5">
+              <div
+                class="flex flex-col items-center justify-between md:flex-row"
+              >
+                <div class="mb-5 flex flex-row items-center gap-5">
                   <img id="set-image" src="" alt="" />
                   <div>
                     <h2 id="set-name"></h2>
@@ -51,9 +63,10 @@
                 </div>
                 <div id="fun-button"></div>
               </div>
+
               <div
                 id="cards-container"
-                class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:overflow-auto flex-1"
+                class="grid flex-1 grid-cols-1 gap-3 overflow-auto sm:grid-cols-3 lg:grid-cols-4"
               ></div>
             </div>
           </div>
@@ -67,13 +80,13 @@
       </div>
       <div
         id="loader-container"
-        class="flex flex-col items-center justify-center w-full h-full"
+        class="flex h-full w-full flex-col items-center justify-center"
       >
         <iframe
           src="../../component/static/loader/loader.html"
           id="loader"
         ></iframe>
-        <p class="text-2xl font-bold mt-10">Loading...</p>
+        <p class="mt-10 text-2xl font-bold">Loading...</p>
       </div>
     </div>
   </body>

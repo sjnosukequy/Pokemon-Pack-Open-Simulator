@@ -11,6 +11,7 @@ const releaseDate = document.getElementById('release-date');
 const cardsContainer = document.getElementById('cards-container');
 const setImage = document.getElementById('set-image');
 const pokeBallContainer = document.getElementById('poke-ball-container');
+const pokeBallContainerPadder = document.getElementById('poke-ball-container-padder');
 const featuredContainer = document.getElementById('featured-card');
 const notFoundContainer = document.getElementById('not-found-container');
 const pageContent = document.getElementById('inner-content');
@@ -31,10 +32,12 @@ function pokeBallLoaderControl(show, element) {
     // console.log(element.classList)
     if (show) {
         pokeBallContainer.classList.toggle('hidden', false);
+        pokeBallContainerPadder.classList.toggle('hidden', false);
         element.classList.toggle('hidden', true);
     }
     else {
         pokeBallContainer.classList.toggle('hidden', true);
+        pokeBallContainerPadder.classList.toggle('hidden', true);
         element.classList.toggle('hidden', false);
     }
 }
@@ -64,7 +67,7 @@ class FeaturedCard {
         this.category = card.category;
         if (card.category == "Pokemon") {
             this.description = card.description;
-            this.type = card.types;
+            this.type = card.types || [];
         }
         else
             this.description = card.effect;
@@ -141,14 +144,14 @@ async function fetchSet() {
         let cardDiv = new Card(card.id, card.name, card.image + '/low.webp');
         cardDiv.addToPage(cardsContainer);
     }
-    // console.log(set)
+    console.log(set)
 }
 
 async function main() {
     try {
         loaderControl(true, contentContainer);
         await fetchSet();
-        const button = FunButton.createButton('Play Now');
+        const button = FunButton.createButton('Play Now', `/pages/game/game.html?id=${pokemonId}`);
         document.getElementById('fun-button').replaceWith(button);
         // document.getElementById('fun-button').appendChild(button);
     }

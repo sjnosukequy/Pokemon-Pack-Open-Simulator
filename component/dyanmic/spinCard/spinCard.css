@@ -1,0 +1,67 @@
+/* From Uiverse.io by imtausef */
+.card-container {
+  perspective: 800px;
+  width: fit-content;
+}
+
+.card {
+  position: relative;
+  width: 210px;
+  height: 289px;
+  /* background: #fffffd; */
+  /* border-radius: 1em; */
+  /* box-shadow: 0 0 6px -4px black; */
+  /* border: solid 2px #0002; */
+  transition: 0.75s all;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* .card-container:hover .card {
+  transform: rotateY(180deg);
+} */
+
+.flipped-card .card {
+  transform: rotateY(180deg);
+}
+
+.back {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
+  background-image: url('/image/BackCard.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* border-radius: 1.25em; */
+  /* background: #191f1f; */
+  overflow: hidden;
+}
+
+.front {
+  position: absolute;
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  inset: 0;
+  border-radius: 0.5em;
+  /* background: #cb0323; */
+  overflow: hidden;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.front img {
+  width: min-content;
+  height: min-content;
+  max-height: 100%;
+}
+
+.container{
+  width: fit-content;
+  height: fit-content;
+  padding: 10px;
+}
