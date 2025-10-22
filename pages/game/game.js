@@ -61,7 +61,7 @@ async function fetchSet() {
     setImage.src = set.logo + '.webp';
     setImage.setAttribute('loading', 'lazy');
     cards = set.cards;
-    console.log(cards)
+    // console.log(cards)
 }
 
 function setupGame() {

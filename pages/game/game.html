@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pokemon Set</title>
+    <title>Open Pokemon Cards Simulator</title>
     <script src="../../script/tailwinds/tailwinds.js"></script>
     <link rel="stylesheet" href="../../style/style.css" />
     <link rel="stylesheet" href="../../style/daisy.css" />
@@ -19,12 +19,20 @@
           id="inner-content"
           class="flex h-full flex-col overflow-hidden p-10"
         >
-          <a class="mb-6 text-center text-4xl font-bold" href="/">
+          <a class="mb-4 text-center text-4xl font-bold" href="/">
             Pokemon packs
           </a>
           <div
             class="flex flex-1 flex-col gap-4 overflow-x-hidden overflow-y-auto"
           >
+            <div class="flex flex-row items-center justify-center gap-5">
+              <img id="set-image" src="" alt="" />
+              <div>
+                <h2 id="set-name"></h2>
+                <p id="release-date"></p>
+              </div>
+            </div>
+
             <div class="relative w-fit self-center">
               <div
                 id="pack-container"
@@ -57,16 +65,10 @@
                 </button>
               </div>
             </div>
-            <div class="mb-5 flex flex-row items-center gap-5">
-              <img id="set-image" src="" alt="" />
-              <div>
-                <h2 id="set-name"></h2>
-                <p id="release-date"></p>
-              </div>
-            </div>
+
             <div
               id="cards-container"
-              class="flex flex-row flex-wrap justify-center gap-4 overflow-auto p-2"
+              class="flex flex-row flex-wrap justify-center gap-4 overflow-auto p-2 flex-1"
             ></div>
           </div>
         </div>

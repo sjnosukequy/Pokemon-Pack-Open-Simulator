@@ -56,16 +56,34 @@
 
 .featured-rarity, .featured-type, .featured-category{
     /* font-style: italic; */
-    font-size: small;
+    /* font-size: small; */
 }
 
 .featured-description{
   margin-top: 10px;
 }
 
-.featured-card-div{
-  width: 100%;
+.featured-attacks{
+  margin-top: 10px;
+  padding-left: 20px;
+  list-style-type: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.featured-div{
+  display: flex;
+  flex-direction: column;
   height: 100%;
+}
+
+.featured-content-div{
+  overflow-y: auto;
+}
+
+.featured-card-div{
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;

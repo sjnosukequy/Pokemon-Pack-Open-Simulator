@@ -56,11 +56,12 @@ class FeaturedCard {
     static rarity = ''
     static type = []
     static category = ''
+    static attacks = []
 
     static async createFeaturedCard(id) {
         pokeBallLoaderControl(true, featuredContainer);
         const card = await tcgdex.fetchCard(id);
-        console.log(card)
+        // console.log(card)
         this.name = card.name;
         this.image = card.image + '/high.webp';
         this.rarity = card.rarity;
@@ -68,38 +69,59 @@ class FeaturedCard {
         if (card.category == "Pokemon") {
             this.description = card.description;
             this.type = card.types || [];
+            this.attacks = [];
+            for (let attack of card.attacks) {
+                this.attacks.push(`<strong>${attack.name}</strong>: ` + attack.effect);
+            }
         }
-        else
+        else {
             this.description = card.effect;
+            this.attacks = [];
+        }
         const div = document.createElement('div');
         const cardDiv = document.createElement('div');
+        const contentDiv = document.createElement('div');
         const hoverCard = HoverCard.createCard(this.image);
         const featuredName = document.createElement('p');
         const featuredDescription = document.createElement('p');
         const featuredRarity = document.createElement('p');
         const featuredCategory = document.createElement('p');
         const featuredType = document.createElement('p');
+        const featuredAttacks = document.createElement('ul');
 
         featuredName.classList.add('featured-name');
         featuredRarity.classList.add('featured-rarity');
         featuredCategory.classList.add('featured-category');
         featuredType.classList.add('featured-type');
         featuredDescription.classList.add('featured-description');
+        featuredAttacks.classList.add('featured-attacks');
         cardDiv.classList.add('featured-card-div');
+        contentDiv.classList.add('featured-content-div');
+        div.classList.add('featured-div');
 
         featuredName.textContent = this.name;
         featuredRarity.textContent = 'Rarity: ' + this.rarity;
         featuredCategory.textContent = 'Category: ' + this.category;
         featuredType.textContent = 'Type: ' + this.type.join(', ');
         featuredDescription.textContent = this.description;
+        for (let attack of this.attacks) {
+            const attackLi = document.createElement('li');
+            attackLi.innerHTML = attack;
+            featuredAttacks.appendChild(attackLi);
+        }
 
         cardDiv.appendChild(hoverCard);
         div.appendChild(cardDiv);
-        div.appendChild(featuredName);
-        div.appendChild(featuredRarity);
-        div.appendChild(featuredCategory);
-        div.appendChild(featuredType);
-        div.appendChild(featuredDescription);
+        contentDiv.appendChild(featuredName);
+        contentDiv.appendChild(featuredRarity);
+        contentDiv.appendChild(featuredCategory);
+        contentDiv.appendChild(featuredType);
+        if (this.description)
+            contentDiv.appendChild(featuredDescription);
+        if (this.attacks.length > 0)
+            contentDiv.appendChild(featuredAttacks);
+        div.appendChild(contentDiv);
+
         featuredContainer.children[0].replaceWith(div);
         pokeBallLoaderControl(false, featuredContainer);
     }
@@ -144,7 +166,7 @@ async function fetchSet() {
         let cardDiv = new Card(card.id, card.name, card.image + '/low.webp');
         cardDiv.addToPage(cardsContainer);
     }
-    console.log(set)
+    // console.log(set)
 }
 
 async function main() {

@@ -45,15 +45,15 @@
   transition-delay: 0ms;
 }
 
-.container-card{
-  width: 150px;
+.container-card {
+  width: 100px;
   height: min-content;
   max-height: 100%;
   border-radius: 0.25em;
   transition: all 0.3s;
 }
 
-.container-card:hover{
+.container-card:hover {
   transform: translateY(-4px);
 }
 
@@ -72,5 +72,12 @@
   width: fit-content;
   height: fit-content;
   max-height: 72px;
-  max-width: 30%;
+  max-width: 140px;
+}
+
+#set-name, #release-date {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
